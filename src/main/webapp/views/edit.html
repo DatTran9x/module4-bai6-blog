@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<div>
+    <div>
+        <button>
+            <a href="/home">Back to homepage</a>
+        </button>
+    </div>
+    <div>
+        <form action="/create" method="post">
+            <table th:object="${blog}">
+                <tr>
+                    <th>Name</th>
+                    <th>Content</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" th:field="*{name}">
+                        <textarea th:field="*{content}"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit">Edit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

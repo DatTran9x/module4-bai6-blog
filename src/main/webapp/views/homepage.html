@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+<div>
+    <div>
+        <button>
+            <a href="/create">Add new blog</a>
+        </button>
+    </div>
+    <div>
+        <h2>Blog list</h2>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Content</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="b,loop:${list}">
+                <td>
+                    <a th:href="@{/details/{id}(id=${b.id})}" th:text="${b.id}"></a>
+                </td>
+                <td>
+                    <a th:href="@{/details/{id}(id=${b.id})}" th:text="${b.name}"></a>
+                </td>
+                <td>
+                    <a th:href="@{/details/{id}(id=${b.id})}" th:text="${b.content}"></a>
+                </td>
+                <td>
+                    <button>
+                        <a th:href="@{/edit/{id}(id=${b.id})}">Edit</a>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
